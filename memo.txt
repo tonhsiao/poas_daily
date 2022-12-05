@@ -1,0 +1,29 @@
+# 20220317, install
+D:\>pip install ipykernel --proxy=http://nhsiao:chingwei1%7e@fetfw.fareastone.com.tw:8080 --trusted-host=pypi.python.org --trusted-host=pypi.org --trusted-host=files.pythonhosted.org
+
+D:\>python -m install --upgrade pip --proxy=http://nhsiao:chingwei1%7e@fetfw.fareastone.com.tw:8080 --trusted-host=pypi.python.org --trusted-host=pypi.org --trusted-host=files.pythonhosted.org
+
+git lfs install
+git clone https://huggingface.co/nlptown/bert-base-multilingual-uncased-sentiment
+# if you want to clone without large files – just their pointers
+# prepend your git clone with the following env var:
+GIT_LFS_SKIP_SMUDGE=1
+
+設定Git Proxy Server
+設定Proxy Server與設定不檢查SSL
+
+# 假設代理伺服器: http://proxy:80 
+git config --global https.proxy https.proxy http://fetfw.fareastone.com.tw:8080
+git config --global http.proxy https.proxy http://fetfw.fareastone.com.tw:8080
+git config --global http.sslVerify false
+如有帳密驗證的話，則可改為以下指令
+
+git config https.proxy http://username:password@host:port
+git config http.proxy http://username:password@host:port
+git config --global http.sslVerify false
+取消Proxy Server設定
+
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+git config --global --unset http.sslVerify
+
